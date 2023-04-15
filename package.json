@@ -2,6 +2,7 @@
   "name": "react-homework-template",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Genesis-Front-End-School.github.io/clean-code-principes-Diana064/",
   "dependencies": {
     "@sajari/react-components": "^2.1.0",
     "@sajari/react-hooks": "^4.0.1",
