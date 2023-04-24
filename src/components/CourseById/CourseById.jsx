@@ -14,6 +14,7 @@ import {
   ContentWrapper,
   VideoPlayer,
 } from './СourseById.module';
+import { DEFAULT_SRC_VIDEO } from 'variables/constants';
 import { Lessons } from './Lessons/Lessons';
 
 export const CourseById = ({ course, handleGoBack }) => {
@@ -23,11 +24,9 @@ export const CourseById = ({ course, handleGoBack }) => {
   const playbackRate = usePlaybackRate(1);
   const playerRef = useRef(null);
 
-  const defaultSrc =
-    'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
   const src = course?.meta?.courseVideoPreview?.link
     ? course.meta.courseVideoPreview.link
-    : defaultSrc;
+    : DEFAULT_SRC_VIDEO;
 
   useEffect(() => {
     if (playerRef.current) {
@@ -35,8 +34,8 @@ export const CourseById = ({ course, handleGoBack }) => {
     }
   }, [played.playedSeconds]);
 
-  function progressTime(e) {
-    const progress = { ...played, playedSeconds: e };
+  function progressTime(currentSec) {
+    const progress = { ...played, playedSeconds: currentSec };
     setPlayed(progress);
   }
 

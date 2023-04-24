@@ -3,16 +3,15 @@ import {
   TextWrapper,
   TextSubtitle,
   List,
-  Item,
-  SkillsIcon,
 } from './CourseData.module';
-import { nanoid } from 'nanoid';
+
+import { SkillsAndTagsDetails } from '../SkillsAndTagsDetails';
 
 export const CourseData = ({ course }) => {
   const {
     rating = 'Missing rating',
     description = 'Missing description',
-    meta: { skills } = 'Missing skills',
+    skills,
     tags,
   } = course;
 
@@ -32,31 +31,13 @@ export const CourseData = ({ course }) => {
           <TextSubtitle>Tags:</TextSubtitle>
         </p>
         <List>
-          {tags ? (
-            tags.map(tag => (
-              <Item key={nanoid()}>
-                <SkillsIcon />
-                {tag}
-              </Item>
-            ))
-          ) : (
-            <Item>Missing tags</Item>
-          )}
+          <SkillsAndTagsDetails item={tags} />
         </List>
         <p>
           <TextSubtitle>Skills:</TextSubtitle>
         </p>
         <List>
-          {skills ? (
-            skills.map(skill => (
-              <Item key={nanoid()}>
-                <SkillsIcon />
-                {skill}
-              </Item>
-            ))
-          ) : (
-            <Item>Missing skills</Item>
-          )}
+          <SkillsAndTagsDetails item={skills} />
         </List>
       </TextWrapper>
     </>
