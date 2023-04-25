@@ -7,16 +7,16 @@ import {
 } from './CoursesItem.module';
 
 import { SkillsAndTagsDetails } from 'components/CourseById/SkillsAndTagsDetails';
+import { DEFAULT_SRC_VIDEO } from 'variables/constants';
 export const CoursesItem = ({ course }) => {
   const {
     title = 'Missing title',
     lessonsCount = 'Missing lessonsCount',
     rating = 'Missing rating',
     description = 'Missing description',
-    meta: { skills } = 'Missing skills',
+    meta: { skills },
   } = course;
-  const defaultSrc =
-    'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
+
   const img = `${course.previewImageLink}/cover.webp`;
   return (
     <>
@@ -26,7 +26,7 @@ export const CoursesItem = ({ course }) => {
         src={
           course.meta.courseVideoPreview
             ? course.meta.courseVideoPreview.link
-            : defaultSrc
+            : DEFAULT_SRC_VIDEO
         }
         img={img}
         alt={course.title}

@@ -11,7 +11,7 @@ export const CourseData = ({ course }) => {
   const {
     rating = 'Missing rating',
     description = 'Missing description',
-    skills,
+    meta: { skills },
     tags,
   } = course;
 

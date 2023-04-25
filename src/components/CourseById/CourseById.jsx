@@ -1,7 +1,5 @@
-import { useLocalStorage } from 'components/hooks/UseLocaleStorage';
-import { useEffect } from 'react';
+import { useProgressTime } from 'components/hooks/UseProgressTime';
 import { usePlaybackRate } from 'components/VideoSpeed/VideoSpeed';
-import { useRef } from 'react';
 import { InstructionVolume } from './InstructionVolume/InstructionVolume';
 import { CourseData } from './CourseData/CourseData';
 import {
@@ -18,26 +16,12 @@ import { DEFAULT_SRC_VIDEO } from 'variables/constants';
 import { Lessons } from './Lessons/Lessons';
 
 export const CourseById = ({ course, handleGoBack }) => {
-  const [played, setPlayed] = useLocalStorage('progressTime', {
-    playedSeconds: 0,
-  });
+  const { playerRef, progressTime } = useProgressTime();
   const playbackRate = usePlaybackRate(1);
-  const playerRef = useRef(null);
 
   const src = course?.meta?.courseVideoPreview?.link
     ? course.meta.courseVideoPreview.link
     : DEFAULT_SRC_VIDEO;
-
-  useEffect(() => {
-    if (playerRef.current) {
-      playerRef.current.seekTo(played.playedSeconds);
-    }
-  }, [played.playedSeconds]);
-
-  function progressTime(currentSec) {
-    const progress = { ...played, playedSeconds: currentSec };
-    setPlayed(progress);
-  }
 
   return (
     <>
