@@ -4,11 +4,9 @@ import {
   TextWrapper,
   TextSubtitle,
   SkillsList,
-  SkillsItem,
-  SkillsIcon,
 } from './CoursesItem.module';
 
-import { nanoid } from 'nanoid';
+import { SkillsAndTagsDetails } from 'components/CourseById/SkillsAndTagsDetails';
 export const CoursesItem = ({ course }) => {
   const {
     title = 'Missing title',
@@ -51,16 +49,7 @@ export const CoursesItem = ({ course }) => {
           <TextSubtitle>Skills:</TextSubtitle>
         </p>
         <SkillsList>
-          {skills ? (
-            skills.map(skill => (
-              <SkillsItem key={nanoid()}>
-                <SkillsIcon />
-                {skill}
-              </SkillsItem>
-            ))
-          ) : (
-            <p>Missing skills</p>
-          )}
+          <SkillsAndTagsDetails item={skills} />
         </SkillsList>
       </TextWrapper>
     </>

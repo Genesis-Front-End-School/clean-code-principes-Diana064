@@ -13,7 +13,7 @@ export function usePlaybackRate(initialRate) {
     }
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [playbackRate]);
+  }, []);
 
   return playbackRate;
 }
