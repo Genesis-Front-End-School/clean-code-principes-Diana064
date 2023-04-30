@@ -1,18 +1,19 @@
-import { Button } from './Instruction.module';
+import React from 'react';
 import { useCallback } from 'react';
+import { Button } from './Instruction.module';
 import { InstructionContent } from './InstructionContent';
 
-function handleVideoSpeed() {
+function handleVideoSpeed(): void {
   alert(
     'You can use your keyboard to increase/reduce your speed of video just push the key equal/minus.'
   );
 }
 
-function handleButtonClick() {
+function handleButtonClick(): void {
   handleVideoSpeed();
 }
 
-export const InstructionVolume = () => {
+export const InstructionVolume: React.FC = () => {
   const handleAlert = useCallback(() => {
     handleButtonClick();
   }, []);

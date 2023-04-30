@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Button,
   PaginationWrapper,
@@ -5,7 +6,18 @@ import {
   NextPage,
 } from './Pagination.module';
 
-function Pagination({ currentPage, totalPages, setCurrentPage }) {
+type PaginationProps = {
+  currentPage: number;
+  totalPages: number;
+  pageSize: number;
+  setCurrentPage: (currentPage: (page: number) => number) => void;
+};
+
+function Pagination({
+  currentPage,
+  totalPages,
+  setCurrentPage,
+}: PaginationProps) {
   const goToPreviousPage = () => {
     setCurrentPage(currentPage => Math.max(currentPage - 1, 1));
   };

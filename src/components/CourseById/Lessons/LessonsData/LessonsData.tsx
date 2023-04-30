@@ -9,8 +9,12 @@ import {
   Text,
 } from './LessonsData.module';
 import { DEFAULT_SRC_VIDEO, DEFAULT_SRC_IMG } from 'variables/constants';
-
-export const LessonData = ({ lesson }) => {
+import React from 'react';
+import { LessonType } from 'types/ComponentsType';
+type LessonDataProps = {
+  lesson: LessonType;
+};
+export const LessonData: React.FC<LessonDataProps> = ({ lesson }) => {
   const { playerRef, progressTime } = useProgressTime();
   const playbackRate = usePlaybackRate(1);
 

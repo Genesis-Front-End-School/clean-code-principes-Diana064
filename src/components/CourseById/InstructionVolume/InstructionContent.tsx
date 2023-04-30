@@ -1,3 +1,4 @@
+import React from 'react';
 import { CourseTitle, IntructionWrapper } from './Instruction.module.jsx';
 
 export const InstructionContent = () => {

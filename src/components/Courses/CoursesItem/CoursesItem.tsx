@@ -1,4 +1,7 @@
+import React from 'react';
 import { HoverVideo } from 'components/HoverVideo/HoverVideo';
+import { SkillsAndTagsDetails } from 'components/CourseById/SkillsAndTagsDetails';
+import { DEFAULT_SRC_VIDEO } from 'variables/constants';
 import {
   CourseTitle,
   TextWrapper,
@@ -6,9 +9,20 @@ import {
   SkillsList,
 } from './CoursesItem.module';
 
-import { SkillsAndTagsDetails } from 'components/CourseById/SkillsAndTagsDetails';
-import { DEFAULT_SRC_VIDEO } from 'variables/constants';
-export const CoursesItem = ({ course }) => {
+interface CoursesItemProps {
+  course: {
+    title: string;
+    lessonsCount: number;
+    rating: number;
+    description: string;
+    meta: {
+      skills: string[];
+      courseVideoPreview: string;
+    };
+    previewImageLink: string;
+  };
+}
+export const CoursesItem: React.FC<CoursesItemProps> = ({ course }) => {
   const {
     title = 'Missing title',
     lessonsCount = 'Missing lessonsCount',

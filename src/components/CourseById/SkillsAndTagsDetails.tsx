@@ -1,6 +1,14 @@
-import { Item, SkillsIcon } from './CourseData/CourseData.module';
+import React from 'react';
 import { nanoid } from 'nanoid';
-export const SkillsAndTagsDetails = ({ item }) => {
+import { Item, SkillsIcon } from './CourseData/CourseData.module';
+
+interface SkillsAndTagsDetailsProps {
+  item: string[] | undefined;
+}
+
+export const SkillsAndTagsDetails: React.FC<SkillsAndTagsDetailsProps> = ({
+  item,
+}) => {
   return (
     <>
       {item ? (
