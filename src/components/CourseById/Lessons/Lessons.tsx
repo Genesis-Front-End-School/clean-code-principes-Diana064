@@ -45,10 +45,9 @@ export const Lessons: React.FC<LessonProps> = ({ course }) => {
         <LessonsListWrapper {...lessonsListWrapperProps} />
       ) : (
         <LessonsList>
-          {lessons &&
-            lessons.map(lesson => (
-              <LockedLesson key={lesson.id} lesson={lesson} />
-            ))}
+          {lessons?.map(lesson => (
+            <LockedLesson key={lesson.id} lesson={lesson} />
+          ))}
         </LessonsList>
       )}
     </TextWrapper>

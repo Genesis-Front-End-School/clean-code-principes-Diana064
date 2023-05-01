@@ -1,11 +1,9 @@
 export type CourseType = {
   id: string;
-  rating: string; // Change type from number to string
+  rating: number;
   meta: {
     skills: string[];
-    courseVideoPreview: {
-      link: string;
-    };
+    courseVideoPreview: string;
   };
   lessons: LessonType[];
   title: string;
@@ -17,6 +15,7 @@ export type CourseType = {
   previewImageLink: string;
   containsLockedLessons: boolean;
 };
+
 export type LessonType = {
   id: number;
   title: string;
