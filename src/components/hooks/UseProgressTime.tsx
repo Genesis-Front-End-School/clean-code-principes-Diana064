@@ -1,12 +1,15 @@
+import { useEffect, useRef } from 'react';
 import { useLocalStorage } from 'components/hooks/UseLocaleStorage';
-import { useEffect } from 'react';
-import { useRef } from 'react';
+
+interface ProgressTime {
+  playedSeconds: number;
+}
 
 export const useProgressTime = () => {
-  const [played, setPlayed] = useLocalStorage('progressTime', {
+  const [played, setPlayed] = useLocalStorage<ProgressTime>('progressTime', {
     playedSeconds: 0,
   });
-  const playerRef = useRef(null);
+  const playerRef = useRef<any>(null);
 
   useEffect(() => {
     if (playerRef.current) {
@@ -14,8 +17,8 @@ export const useProgressTime = () => {
     }
   }, [played.playedSeconds]);
 
-  function progressTime(currentSec) {
-    const progress = { ...played, playedSeconds: currentSec };
+  function progressTime(currentSec: number) {
+    const progress: ProgressTime = { ...played, playedSeconds: currentSec };
     setPlayed(progress);
   }
 

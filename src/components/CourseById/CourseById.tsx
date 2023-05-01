@@ -1,7 +1,12 @@
+import React from 'react';
 import { useProgressTime } from 'components/hooks/UseProgressTime';
 import { usePlaybackRate } from 'components/VideoSpeed/VideoSpeed';
 import { InstructionVolume } from './InstructionVolume/InstructionVolume';
 import { CourseData } from './CourseData/CourseData';
+import { DEFAULT_SRC_VIDEO } from 'variables/constants';
+import { Lessons } from './Lessons/Lessons';
+import { CourseType } from 'types/ComponentsType';
+
 import {
   IconGoBack,
   Button,
@@ -12,10 +17,17 @@ import {
   ContentWrapper,
   VideoPlayer,
 } from './СourseById.module';
-import { DEFAULT_SRC_VIDEO } from 'variables/constants';
-import { Lessons } from './Lessons/Lessons';
 
-export const CourseById = ({ course, handleGoBack }) => {
+interface SkillsAndTagsDetailsProps {
+  course: CourseType;
+  handleGoBack: () => void;
+  isLoading?: boolean;
+}
+
+export const CourseById: React.FC<SkillsAndTagsDetailsProps> = ({
+  course,
+  handleGoBack,
+}) => {
   const { playerRef, progressTime } = useProgressTime();
   const playbackRate = usePlaybackRate(1);
 

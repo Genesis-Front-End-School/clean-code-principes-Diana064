@@ -1,3 +1,6 @@
+import React from 'react';
+import { SkillsAndTagsDetails } from '../SkillsAndTagsDetails';
+import { CourseType } from 'types/ComponentsType';
 import {
   CourseTitle,
   TextWrapper,
@@ -5,9 +8,12 @@ import {
   List,
 } from './CourseData.module';
 
-import { SkillsAndTagsDetails } from '../SkillsAndTagsDetails';
+type CourseDataProps = {
+  course: CourseType;
+  handleGoBack: () => void;
+};
 
-export const CourseData = ({ course }) => {
+export const CourseData: React.FC<CourseDataProps> = ({ course }) => {
   const {
     rating = 'Missing rating',
     description = 'Missing description',
@@ -30,15 +36,11 @@ export const CourseData = ({ course }) => {
         <p>
           <TextSubtitle>Tags:</TextSubtitle>
         </p>
-        <List>
-          <SkillsAndTagsDetails item={tags} />
-        </List>
+        <List>{tags && <SkillsAndTagsDetails item={tags} />}</List>
         <p>
           <TextSubtitle>Skills:</TextSubtitle>
         </p>
-        <List>
-          <SkillsAndTagsDetails item={skills} />
-        </List>
+        <List>{skills && <SkillsAndTagsDetails item={skills} />}</List>
       </TextWrapper>
     </>
   );

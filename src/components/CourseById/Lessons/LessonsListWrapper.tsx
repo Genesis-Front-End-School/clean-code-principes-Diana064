@@ -1,7 +1,16 @@
+import React from 'react';
 import LessonItem from './LessonItem';
 import { LessonsList } from './Lessons.module';
+import { LessonType } from 'types/ComponentsType';
 
-const LessonsListWrapper = ({
+type LessonsListWrapperProps = {
+  lessons: LessonType[];
+  handleLessonClick: (lessonId: number) => void;
+  detailedLessons: {
+    [key: number]: boolean;
+  };
+};
+const LessonsListWrapper: React.FC<LessonsListWrapperProps> = ({
   lessons,
   handleLessonClick,
   detailedLessons,

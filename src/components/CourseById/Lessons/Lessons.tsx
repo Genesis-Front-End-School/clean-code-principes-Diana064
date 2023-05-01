@@ -1,8 +1,15 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { TextWrapper, CourseTitle, LessonsList } from './Lessons.module';
 import LessonsListWrapper from './LessonsListWrapper';
 import LockedLesson from './LockedLessons';
-export const Lessons = ({ course }) => {
+import { CourseType } from 'types/ComponentsType';
+
+type LessonProps = {
+  course: CourseType;
+};
+
+export const Lessons: React.FC<LessonProps> = ({ course }) => {
   const [detailedLessons, setDetailedLessons] = useState({});
 
   useEffect(() => {
@@ -13,7 +20,7 @@ export const Lessons = ({ course }) => {
     }
   }, []);
 
-  const handleLessonClick = lessonId => {
+  const handleLessonClick = (lessonId: number) => {
     setDetailedLessons(prevState => {
       const newState = {
         ...prevState,
@@ -38,9 +45,10 @@ export const Lessons = ({ course }) => {
         <LessonsListWrapper {...lessonsListWrapperProps} />
       ) : (
         <LessonsList>
-          {lessons.map(lesson => (
-            <LockedLesson key={lesson.id} lesson={lesson} />
-          ))}
+          {lessons &&
+            lessons.map(lesson => (
+              <LockedLesson key={lesson.id} lesson={lesson} />
+            ))}
         </LessonsList>
       )}
     </TextWrapper>

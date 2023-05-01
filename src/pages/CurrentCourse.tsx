@@ -1,16 +1,19 @@
-import { CourseById } from 'components/CourseById/CourseById';
+import React from 'react';
 import { useState, useEffect } from 'react';
-import * as ImageService from '../components/services/api';
 import { useParams } from 'react-router';
 import { useNavigate, useLocation } from 'react-router-dom';
+import * as ImageService from '../components/services/api';
+import { CourseById } from 'components/CourseById/CourseById';
 import { Loader } from 'components/Loading/Loading';
-export const CurrentCourse = () => {
-  const [course, setCourse] = useState([]);
-  const [error, setError] = useState('');
-  const { courseId } = useParams();
+import { CourseType } from '../types/ComponentsType';
+
+const CurrentCourse = () => {
+  const [course, setCourse] = useState<CourseType | null>(null);
+  const [error, setError] = useState<string>('');
+  const { courseId } = useParams<{ courseId: string }>();
   const navigate = useNavigate();
   const location = useLocation();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -19,7 +22,7 @@ export const CurrentCourse = () => {
         const response = await ImageService.getCoursById(courseId);
         setCourse(response);
       } catch (error) {
-        setError(error);
+        setError(error.message);
       } finally {
         setIsLoading(false);
       }
@@ -32,13 +35,13 @@ export const CurrentCourse = () => {
   };
 
   if (!course) {
-    return;
+    return null;
   }
 
   return (
     <>
       {error ? (
-        <>{error.message}</>
+        <>{error}</>
       ) : (
         <>
           {!isLoading ? (
@@ -50,10 +53,12 @@ export const CurrentCourse = () => {
               />
             </>
           ) : (
-            <Loader />
+            <Loader height="80" width="80" radius="9" visible={true} />
           )}
         </>
       )}
     </>
   );
 };
+
+export default CurrentCourse;

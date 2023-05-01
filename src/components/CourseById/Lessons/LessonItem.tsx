@@ -1,7 +1,19 @@
+import React from 'react';
 import { LessonContent } from './LessonContent';
 import { LessonsListItem, Button, UnLockIcon } from './Lessons.module';
+import { LessonType } from 'types/ComponentsType';
 
-const LessonItem = ({ lesson, handleLessonClick, detailedLessons }) => {
+type LessonItemProps = {
+  lesson: LessonType;
+  handleLessonClick: (lessonId: number) => void;
+  detailedLessons: { [key: number]: boolean };
+};
+
+const LessonItem: React.FC<LessonItemProps> = ({
+  lesson,
+  handleLessonClick,
+  detailedLessons,
+}) => {
   const isLocked = lesson.status !== 'unlocked';
 
   return (

@@ -1,13 +1,20 @@
+import React from 'react';
 import { useState } from 'react';
 import { IMG, HoverPlayer, HoverPlayerWrapper } from './HoverVideo.module';
 
-export const HoverVideo = ({ src, img, alt }) => {
-  const [hover, setHover] = useState(false);
+interface HoverVideoProps {
+  src: string;
+  img: string;
+  alt: string;
+}
 
-  const handleMouseEnter = () => {
+export const HoverVideo: React.FC<HoverVideoProps> = ({ src, img, alt }) => {
+  const [hover, setHover] = useState<boolean>(false);
+
+  const handleMouseEnter = (): void => {
     setHover(true);
   };
-  const handleMouseLeave = () => {
+  const handleMouseLeave = (): void => {
     setHover(false);
   };
 
