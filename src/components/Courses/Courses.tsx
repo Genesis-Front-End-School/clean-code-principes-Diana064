@@ -12,28 +12,16 @@ import {
   Title,
   CourseListWrapper,
 } from './Courses.module';
+import { CourseType } from 'types/ComponentsType';
 
-interface Course {
-  id: number;
-  title: string;
-  lessonsCount: number;
-  rating: number;
-  description: string;
-  meta: {
-    skills: string[];
-    courseVideoPreview: string;
-  };
-  previewImageLink: string;
-}
-
-export const Courses = () => {
-  const [courses, setCourses] = useState<Course[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+export const Courses: React.FC = () => {
+  const [courses, setCourses] = useState<CourseType[]>([]);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const location = useLocation();
   // Variables for pagination
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [pageSize] = useState<number>(10);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize] = useState(10);
   const totalPages = Math.ceil(courses.length / pageSize);
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = Math.min(startIndex + pageSize, courses.length);

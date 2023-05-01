@@ -9,7 +9,7 @@ import { CourseType } from '../types/ComponentsType';
 
 const CurrentCourse = () => {
   const [course, setCourse] = useState<CourseType | null>(null);
-  const [error, setError] = useState<string>('');
+  const [error, setError] = useState('');
   const { courseId } = useParams<{ courseId: string }>();
   const navigate = useNavigate();
   const location = useLocation();
