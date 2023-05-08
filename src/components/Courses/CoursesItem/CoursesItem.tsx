@@ -9,7 +9,7 @@ import {
   SkillsList,
 } from './CoursesItem.module';
 
-interface CoursesItemProps {
+export type CoursesItemProps = {
   course: {
     title: string;
     lessonsCount: number;
@@ -17,11 +17,13 @@ interface CoursesItemProps {
     description: string;
     meta: {
       skills: string[];
-      courseVideoPreview: string;
+      courseVideoPreview: {
+        link: string;
+      };
     };
     previewImageLink: string;
   };
-}
+};
 export const CoursesItem: React.FC<CoursesItemProps> = ({ course }) => {
   const {
     title = 'Missing title',

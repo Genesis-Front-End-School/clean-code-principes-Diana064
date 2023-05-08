@@ -10,19 +10,20 @@ type PaginationProps = {
   currentPage: number;
   totalPages: number;
   pageSize: number;
-  setCurrentPage: (currentPage: (page: number) => number) => void;
+  setCurrentPage: (page: number) => void;
 };
 
 function Pagination({
   currentPage,
   totalPages,
+  pageSize,
   setCurrentPage,
 }: PaginationProps) {
   const goToPreviousPage = () => {
-    setCurrentPage(currentPage => Math.max(currentPage - 1, 1));
+    setCurrentPage(Math.max(currentPage - 1, 1));
   };
   const goToNextPage = () => {
-    setCurrentPage(currentPage => Math.min(currentPage + 1, totalPages));
+    setCurrentPage(Math.min(currentPage + 1, totalPages));
   };
   return (
     <PaginationWrapper>

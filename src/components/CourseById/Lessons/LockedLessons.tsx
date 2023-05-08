@@ -1,15 +1,15 @@
 import React from 'react';
 import { LessonsListItem, LockIcon } from './Lessons.module';
-import { LessonType } from 'types/ComponentsType';
+
 type LockedLessonProps = {
-  lesson: LessonType;
+  title: string;
 };
 
-const LockedLesson: React.FC<LockedLessonProps> = ({ lesson }) => (
+const LockedLesson: React.FC<LockedLessonProps> = ({ title }) => (
   <LessonsListItem>
     <p>
       <LockIcon />
-      {`${lesson.title} disabled`}
+      {`${title} disabled`}
     </p>
   </LessonsListItem>
 );

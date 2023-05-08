@@ -1,9 +1,11 @@
 export type CourseType = {
-  id: string;
+  id: number;
   rating: number;
   meta: {
     skills: string[];
-    courseVideoPreview: string;
+    courseVideoPreview: {
+      link: string;
+    };
   };
   lessons: LessonType[];
   title: string;
@@ -15,7 +17,6 @@ export type CourseType = {
   previewImageLink: string;
   containsLockedLessons: boolean;
 };
-
 export type LessonType = {
   id: number;
   title: string;
@@ -28,3 +29,4 @@ export type LessonType = {
   previewImageLink: string;
   order: string;
 };
+export type DetailedLessonState = { [key: number]: boolean };
