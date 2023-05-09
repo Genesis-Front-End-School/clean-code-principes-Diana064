@@ -1,11 +1,11 @@
 import React from 'react';
-import { useProgressTime } from 'components/hooks/UseProgressTime';
-import { usePlaybackRate } from 'components/VideoSpeed/VideoSpeed';
+import { useProgressTime } from '../hooks/UseProgressTime';
+import { usePlaybackRate } from '../VideoSpeed/VideoSpeed';
 import { InstructionVolume } from './InstructionVolume/InstructionVolume';
 import { CourseData } from './CourseData/CourseData';
-import { DEFAULT_SRC_VIDEO } from 'variables/constants';
+import { DEFAULT_SRC_VIDEO } from '../../variables/constants';
 import { Lessons } from './Lessons/Lessons';
-import { CourseType } from 'types/ComponentsType';
+import { CourseType } from '../../types/ComponentsType';
 
 import {
   IconGoBack,

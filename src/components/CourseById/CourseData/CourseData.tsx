@@ -1,6 +1,6 @@
 import React from 'react';
 import { SkillsAndTagsDetails } from '../SkillsAndTagsDetails';
-import { CourseType } from 'types/ComponentsType';
+import { CourseType } from '../../../types/ComponentsType';
 import {
   CourseTitle,
   TextWrapper,
