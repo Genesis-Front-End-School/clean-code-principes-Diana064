@@ -15,6 +15,7 @@ export const StyledLink = styled(NavLink)`
   text-decoration: none;
 `;
 export const Title = styled.h2`
+  color: ${p => p.theme.colors.black};
   text-align: center;
   font-size: ${p => p.theme.fontSizes.xl};
 `;

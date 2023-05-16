@@ -4,9 +4,7 @@ import { AiOutlineCheckCircle } from 'react-icons/ai';
 export const CourseTitle = styled.h2`
   font-size: ${p => p.theme.fontSizes.l};
   text-align: center;
-
-  color: ${p => p.theme.colors.title};
-
+  color: ${p => p.theme.colors.text};
   margin-top: ${p => p.theme.gap[3]}px;
   margin-bottom: ${p => p.theme.gap[0]}px;
 `;
