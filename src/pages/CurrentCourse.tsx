@@ -4,7 +4,8 @@ import { useParams } from 'react-router';
 import { useNavigate, useLocation } from 'react-router-dom';
 import * as ImageService from '../components/services/api';
 import { CourseById } from 'components/CourseById/CourseById';
-import { Loader } from 'components/Loading/Loading';
+
+import { Loader } from '@diana064/template-react-lib-gen';
 import { CourseType } from '../types/ComponentsType';
 
 const CurrentCourse = () => {
@@ -29,7 +30,6 @@ const CurrentCourse = () => {
     }
     fetchData();
   }, [courseId]);
-
   const handleGoBack = () => {
     navigate(location.state.from);
   };
@@ -53,7 +53,7 @@ const CurrentCourse = () => {
               />
             </>
           ) : (
-            <Loader height="80" width="80" radius="9" visible={true} />
+            <Loader text="Loading..." />
           )}
         </>
       )}

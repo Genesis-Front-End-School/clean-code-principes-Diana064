@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import { useProgressTime } from 'components/hooks/UseProgressTime';
 import ReactPlayer from 'react-player';
 import { usePlaybackRate } from 'components/VideoSpeed/VideoSpeed';
@@ -38,6 +39,7 @@ export const LessonData: React.FC<LessonDataProps> = ({ lesson }) => {
             <TextSubtitle>Video of lesson</TextSubtitle>
           </Text>
           <VideoWrapper>
+            {/* @ts-ignore */}
             <ReactPlayer
               width="100%"
               height="100%"

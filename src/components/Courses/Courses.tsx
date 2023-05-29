@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import * as ImageService from '../services/api';
 import Pagination from 'components/Pagination/Pagination';
 import { CoursesItem } from './CoursesItem/CoursesItem';
-import { Loader } from 'components/Loading/Loading';
+import { Loader } from '@diana064/template-react-lib-gen';
 import {
   CoursesList,
   CourseItemWrapper,
@@ -71,7 +71,7 @@ export const Courses: React.FC = () => {
                 />
               </>
             ) : (
-              <Loader height="80" width="80" radius="9" visible={true} />
+              <Loader text="loading..." />
             )}
           </CourseListWrapper>
         </>
